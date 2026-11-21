@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Sorry is Sid?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Fredoka+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="flash-overlay" id="flashOverlay"></div>
+  <div class="confetti-container" id="confettiContainer"></div>
+  <div class="emoji-layer" id="emojiLayer"></div>
+
+  <div class="page">
+
+    <h1 class="title">How Sorry is Sid? <span class="sad-icon">😢</span></h1>
+
+    <!-- Stage: meter sits centered; after breakthrough splits into left + right -->
+    <div class="stage" id="stage">
+
+      <!-- METER: centered, vanishes on breakthrough -->
+      <div class="meter-center" id="meterCenter">
+        <div class="meter-section" id="meterSection">
+          <div class="meter-labels">
+            <span>💥</span>
+            <span>75</span>
+            <span>50</span>
+            <span>25</span>
+            <span>0</span>
+          </div>
+          <div class="meter-track" id="meterTrack">
+            <div class="meter-fill" id="meterFill"></div>
+            <div class="meter-handle" id="meterHandle"></div>
+            <div class="meter-max-line"></div>
+          </div>
+          <div class="meter-num-wrap">
+            <span class="meter-num" id="meterNum">0</span>
+          </div>
+        </div>
+        <div class="meter-msg" id="meterMsg">pull it up ↑</div>
+      </div>
+
+      <!-- SPLIT LAYOUT: slides in after breakthrough -->
+      <div class="split-layout" id="splitLayout">
+
+        <!-- Left: SORR4 → SIRI -->
+        <div class="split-left">
+          <div class="word-section" id="wordSection">
+            <span class="letter" id="lS">S</span>
+            <span class="letter letter-o" id="lO">O</span>
+            <span class="letter split-r" id="lR1">
+              <span class="part-extra">R</span>
+              <span class="part-siri">R</span>
+            </span>
+            <span class="letter" id="lR2">R</span>
+            <span class="letter split-four" id="lFour">
+              <span class="part-extra">4</span>
+              <span class="part-siri">4</span>
+            </span>
+            <span class="siri-heart" id="siriHeart">❤️</span>
+          </div>
+        </div>
+
+        <!-- Right: dog + heart -->
+        <div class="split-right">
+          <div class="dog-section" id="dogSection">
+            <div class="heart" id="heart" draggable="true">❤️</div>
+            <p class="drag-hint">Sid needs your heart 🥺</p>
+            <div class="dog-drop" id="dogDrop">
+              <img id="dogImg"
+                   src="https://media.tenor.com/rzo_ndkI6rMAAAAj/playpawsum-pawsum.gif"
+                   alt="Pitbull">
+            </div>
+            <div class="happy-msg" id="happyMsg">Really sorry, Sid ML model is still learning you 😢😿🐾😔</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
