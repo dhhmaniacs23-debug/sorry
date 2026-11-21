@@ -150,6 +150,8 @@ function triggerBreakthrough() {
 
 /* ── Show split layout ──────────────────────── */
 function showSplit() {
+  document.getElementById('stage').style.alignItems = 'flex-start';
+  document.getElementById('stage').style.paddingTop = '20px';
   splitLayout.style.display = 'flex';
   // Small timeout is more reliable than getBoundingClientRect for triggering transition
   setTimeout(() => {

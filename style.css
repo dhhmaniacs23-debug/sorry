@@ -156,6 +156,7 @@ body {
 .split-layout.visible { opacity: 1; }
 
 .split-left {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -164,6 +165,7 @@ body {
   transition: transform 0.9s ease, opacity 0.9s ease;
 }
 .split-right {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
