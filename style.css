@@ -145,49 +145,36 @@ body {
 /* ── Split layout (appears after breakthrough) ─ */
 .split-layout {
   display: none;          /* switched to flex by JS */
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 48px;
+  gap: 32px;
   width: 100%;
   opacity: 0;
   transition: opacity 0.7s ease;
 }
 .split-layout.visible { opacity: 1; }
 
-@media (max-width: 600px) {
-  .split-layout { flex-direction: column; gap: 28px; }
-}
-
 .split-left {
-  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: translateX(-22px);
+  transform: translateY(-16px);
   opacity: 0;
   transition: transform 0.9s ease, opacity 0.9s ease;
 }
 .split-right {
-  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: translateX(22px);
+  transform: translateY(16px);
   opacity: 0;
   transition: transform 0.9s ease 0.18s, opacity 0.9s ease 0.18s;
 }
 .split-layout.visible .split-left,
 .split-layout.visible .split-right {
   opacity: 1;
-  transform: translateX(0);
-}
-
-@media (max-width: 600px) {
-  .split-left  { transform: translateY(16px); }
-  .split-right { transform: translateY(16px); transition-delay: 0.18s; }
-  .split-layout.visible .split-left,
-  .split-layout.visible .split-right { transform: translateY(0); }
+  transform: translateY(0);
 }
 
 /* ── Word section ───────────────────────────── */
