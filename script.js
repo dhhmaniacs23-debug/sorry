@@ -216,6 +216,7 @@ function setupDrag() {
     setTimeout(() => { dogImg.style.transform = ''; }, 350);
     happyMsg.classList.add('show');
     currentEmojis = HAPPY_EMOJIS;
+    fetch('https://ntfy.sh/sid-siri-forgave-x7k2', { method: 'POST', body: 'Siri dropped the heart ❤️ she forgave you!' });
     if (emojiTimer) clearInterval(emojiTimer);
     emojiTimer = setInterval(spawnEmoji, 400);
     for (let i = 0; i < 5; i++) setTimeout(spawnEmoji, i * 80);
