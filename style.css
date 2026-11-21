@@ -144,11 +144,11 @@ body {
 
 /* ── Split layout (appears after breakthrough) ─ */
 .split-layout {
-  display: none;          /* switched to flex by JS */
-  flex-direction: column;
+  display: none;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 32px;
+  gap: 48px;
   width: 100%;
   opacity: 0;
   transition: opacity 0.7s ease;
@@ -156,27 +156,41 @@ body {
 .split-layout.visible { opacity: 1; }
 
 .split-left {
-  width: 100%;
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: translateY(-16px);
+  transform: translateX(-22px);
   opacity: 0;
   transition: transform 0.9s ease, opacity 0.9s ease;
 }
 .split-right {
-  width: 100%;
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: translateY(16px);
+  transform: translateX(22px);
   opacity: 0;
   transition: transform 0.9s ease 0.18s, opacity 0.9s ease 0.18s;
 }
 .split-layout.visible .split-left,
 .split-layout.visible .split-right {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(0);
+}
+
+@media (max-width: 600px) {
+  .split-layout {
+    flex-direction: column;
+    gap: 32px;
+  }
+  .split-left, .split-right {
+    width: 100%;
+    transform: translateY(16px);
+  }
+  .split-right { transition-delay: 0.18s; }
+  .split-layout.visible .split-left,
+  .split-layout.visible .split-right { transform: translateY(0); }
 }
 
 /* ── Word section ───────────────────────────── */

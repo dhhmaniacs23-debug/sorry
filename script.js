@@ -22,7 +22,9 @@ let isDragging = false;
 let breached   = false;
 
 /* ── Floating sad emojis (gentle rate tied to meter) */
-const SAD_EMOJIS = ['😢', '😔', '🥺', '😭', '😿'];
+const SAD_EMOJIS   = ['😢', '😔', '🥺', '😭', '😿'];
+const HAPPY_EMOJIS = ['😊', '😄', '🥰', '😍', '😁', '❤️', '💕', '💗'];
+let currentEmojis = SAD_EMOJIS;
 const MAX_EMOJIS = 10;
 let activeEmojis  = 0;
 let emojiTimer    = null;
@@ -33,7 +35,7 @@ function spawnEmoji() {
   activeEmojis++;
   const el = document.createElement('div');
   el.className      = 'float-emoji';
-  el.textContent    = SAD_EMOJIS[Math.floor(Math.random() * SAD_EMOJIS.length)];
+  el.textContent    = currentEmojis[Math.floor(Math.random() * currentEmojis.length)];
   el.style.left     = (4 + Math.random() * 92) + '%';
   el.style.fontSize = (14 + Math.random() * 14) + 'px';
   const dur = 4 + Math.random() * 4;
@@ -150,8 +152,10 @@ function triggerBreakthrough() {
 
 /* ── Show split layout ──────────────────────── */
 function showSplit() {
-  document.getElementById('stage').style.alignItems = 'flex-start';
-  document.getElementById('stage').style.paddingTop = '20px';
+  if (window.innerWidth <= 600) {
+    document.getElementById('stage').style.alignItems = 'flex-start';
+    document.getElementById('stage').style.paddingTop = '20px';
+  }
   splitLayout.style.display = 'flex';
   // Small timeout is more reliable than getBoundingClientRect for triggering transition
   setTimeout(() => {
@@ -215,6 +219,7 @@ function setupDrag() {
     dogImg.style.transform = 'scale(1.08)';
     setTimeout(() => { dogImg.style.transform = ''; }, 350);
     happyMsg.classList.add('show');
+    currentEmojis = HAPPY_EMOJIS;
     spawnConfetti();
   }
 
