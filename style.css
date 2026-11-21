@@ -275,14 +275,15 @@ body {
 
 /* ── Dog section ────────────────────────────── */
 .dog-section {
-  display: none;
+  display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
   opacity: 0;
+  pointer-events: none;
   transition: opacity 0.8s;
 }
-.dog-section.visible { display: flex; opacity: 1; }
+.dog-section.visible { opacity: 1; pointer-events: auto; }
 
 .heart {
   font-size: clamp(40px, 8vw, 68px);

@@ -152,10 +152,6 @@ function triggerBreakthrough() {
 
 /* ── Show split layout ──────────────────────── */
 function showSplit() {
-  if (window.innerWidth <= 600) {
-    document.getElementById('stage').style.alignItems = 'flex-start';
-    document.getElementById('stage').style.paddingTop = '20px';
-  }
   splitLayout.style.display = 'flex';
   // Small timeout is more reliable than getBoundingClientRect for triggering transition
   setTimeout(() => {
@@ -196,8 +192,6 @@ function startFlash() {
 
 /* ── Dog section ────────────────────────────── */
 function showDog() {
-  dogSection.style.display = 'flex';
-  dogSection.getBoundingClientRect();
   dogSection.classList.add('visible');
   setupDrag();
 }
@@ -220,6 +214,9 @@ function setupDrag() {
     setTimeout(() => { dogImg.style.transform = ''; }, 350);
     happyMsg.classList.add('show');
     currentEmojis = HAPPY_EMOJIS;
+    if (emojiTimer) clearInterval(emojiTimer);
+    emojiTimer = setInterval(spawnEmoji, 400);
+    for (let i = 0; i < 5; i++) setTimeout(spawnEmoji, i * 80);
     spawnConfetti();
   }
 
