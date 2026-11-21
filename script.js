@@ -148,6 +148,8 @@ function triggerBreakthrough() {
 
   // Wait for meter to fully vanish (shake 560ms + vanish 500ms) then show split
   setTimeout(showSplit, 1150);
+  // Remove from layout after vanish so it doesn't offset the split
+  setTimeout(() => { meterCenter.style.display = 'none'; }, 1200);
 }
 
 /* ── Show split layout ──────────────────────── */
